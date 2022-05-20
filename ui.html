@@ -1,0 +1,15 @@
+<h1>Opacity Master</h1>
+<p>Enter new opacity <input type="text"  id="inputBox" value="50"></p>
+<button id="applyOpacity">Apply Opacity</button>
+<button id="exitPlugin">Exit</button>
+
+<script>
+   document.getElementById('applyOpacity').onclick = () =>{
+     const inputBox = document.getElementById('inputBox');
+     const opacityValue = parseInt(inputBox.value,10);
+     parent.postMessage({pluginMessage:{type:'applyOpacity',opacityValue}},'*');
+   }
+   document.getElementById('exitPlugin').onclick = () =>{
+     parent.postMessage({pluginMessage:{type:'exitPlugin'}},'*');
+   }
+</script>
